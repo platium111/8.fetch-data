@@ -14,11 +14,16 @@ function App() {
 
   // [learn] axios is better, not need to use 2 await, just use one and using response.data
   const fetchTodosUsingAxios = async () => {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
-    setData(response.data);
-    console.log("axios", response.data);
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      console.log("axios", response.data);
+
+      setData(response.data);
+    } catch (exception) {
+      console.log(exception);
+    }
   };
 
   // [learn] render 2 times, one is default app, one when we setData() inside fetchTodos()
