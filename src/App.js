@@ -8,8 +8,8 @@ function App() {
   const fetchTodosUsingFetch = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
 
-    const responseJson = await response.json();
-    setData(responseJson);
+    const todos = await response.json();
+    setData(todos);
   };
 
   // [learn] axios is better, not need to use 2 await, just use one and using response.data
